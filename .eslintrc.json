@@ -1,3 +1,4 @@
 {
-  "extends": ["@ogustavohp/eslint-config/next-node","next/core-web-vitals"]
+  "extends": ["@ogustavohp/eslint-config/next-node","next/core-web-vitals"],
+  "ignorePatterns":["ffmpeg/*"]
 }
