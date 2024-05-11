@@ -6,7 +6,7 @@ Bem-vindo ao AInsight, a aplicação desenvolvida durante a segunda Imersão de 
 
 ## Pré-requisitos
 
-Antes de executar a aplicação, é necessário configurar algumas variáveis de ambiente:
+Antes de executar a aplicação, é necessário configurar algumas variáveis de ambiente: .file.env
 
 - `GOOGLE_AI_API_KEY`: Chave de API do Google para consulta do serviço de transcrição de áudio.
 - `OPENAI_KEY`: Chave de API do OpenAI para transformação de áudio em texto.
@@ -17,7 +17,7 @@ Antes de executar a aplicação, é necessário configurar algumas variáveis de
 1. **Clone este repositório para sua máquina local:**
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/ogustavohp/ainsight
 ```
 
 2. **Instale as dependências do projeto:**
