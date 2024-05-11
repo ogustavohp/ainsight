@@ -10,8 +10,6 @@ export async function POST(request: Request) {
     history.push(aiHistory)
   }
 
-  console.log(history)
-
   if (!process.env.GOOGLE_AI_API_KEY) {
     return Response.json({ err: 'Missing Google API Key.' }, { status: 400 })
   }
