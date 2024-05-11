@@ -34,6 +34,7 @@ npm install
 ```bash
 npm run dev
 ```
+
 ## Imagens da Aplicação
 
 Aqui você pode adicionar imagens da aplicação para ilustrar seu funcionamento.
