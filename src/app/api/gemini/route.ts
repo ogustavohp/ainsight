@@ -4,13 +4,11 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 export async function POST(request: Request) {
   const { prompt } = await request.json()
 
-  if (!process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY) {
+  if (!process.env.GOOGLE_AI_API_KEY) {
     return Response.json({ err: 'Missing Google API Key.' }, { status: 400 })
   }
 
-  const genAI = new GoogleGenerativeAI(
-    process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY,
-  )
+  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY)
 
   const model = genAI.getGenerativeModel({ model: 'gemini-pro' })
   const result = await model.generateContent(prompt)

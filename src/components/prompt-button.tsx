@@ -7,8 +7,6 @@ import { typeAiResponse } from '@/app/page'
 interface IPromptButton {
   title: string
   prompt: string
-  videoType: 'YouTube' | 'upload'
-  youTubeLink?: string
   aiResponse: typeAiResponse
   setAiResponse: Dispatch<SetStateAction<typeAiResponse>>
   localStorageState: boolean
@@ -17,8 +15,6 @@ interface IPromptButton {
 export function PromptButton({
   title,
   prompt,
-  videoType,
-  youTubeLink,
   aiResponse,
   setAiResponse,
   localStorageState,
@@ -31,32 +27,30 @@ export function PromptButton({
     e.preventDefault()
     setDisable(true)
 
-    let fullPrompt: string = ''
+    const transcription = localStorage.getItem('transcription')
 
-    if (videoType === 'YouTube' && youTubeLink) {
-      fullPrompt = `
-      Esse é um link do YouTube: {{{ ${youTubeLink} }}}
-      Responda: ${prompt}
-      `
+    if (!transcription) {
+      setAiResponse([
+        ...aiResponse,
+        {
+          resumoPrompt: title,
+          response:
+            'Envie um vídeo do YouTube ou faça o upload de um vídeo primeiro.',
+        },
+      ])
+      return
     }
 
-    if (videoType === 'upload') {
-      const transcription = localStorage.getItem('transcription')
-      fullPrompt = `
-      Essa é a transcrição de um video: {{{ ${transcription} }}} 
-      Responda: ${prompt}
-      `
-    }
+    const fullPrompt = `
+    Essa é a transcrição de um video: {{{ ${transcription} }}} 
+    Responda: ${prompt}
+    `
 
     const response = await api.post(`/gemini`, { prompt: fullPrompt })
 
-    console.log(response)
-
-    console.log(fullPrompt)
-
     setAiResponse([
       ...aiResponse,
-      { resumoPrompt: prompt, response: response.data.text },
+      { resumoPrompt: title, response: response.data.text },
     ])
 
     setDisable(false)
@@ -64,11 +58,7 @@ export function PromptButton({
 
   return (
     <Button
-      disabled={
-        disable ||
-        (videoType === 'YouTube' && !youTubeLink) ||
-        !localStorageState
-      }
+      disabled={disable || !localStorageState}
       onClick={(e) => handleConnectToGeminiAPI(e)}
     >
       {title}
