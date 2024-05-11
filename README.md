@@ -6,10 +6,14 @@ Bem-vindo ao AInsight, a aplicação desenvolvida durante a segunda Imersão de 
 
 ## Pré-requisitos
 
-Antes de executar a aplicação, é necessário configurar algumas variáveis de ambiente: .file.env
+Antes de executar a aplicação, é necessário configurar algumas variáveis de ambiente: `.env.local`
 
 - `GOOGLE_AI_API_KEY`: Chave de API do Google para consulta do serviço de transcrição de áudio.
+
+  Se não for usar fazer upload do arquivo de audio não precisa da `OPENAI_KEY`
 - `OPENAI_KEY`: Chave de API do OpenAI para transformação de áudio em texto.
+
+  Valor padrão do BASE_URL = `http://localhost:3000/api/`
 - `NEXT_PUBLIC_BASE_URL`: URL base para configuração do Axios.
 
 ## Como Executar
