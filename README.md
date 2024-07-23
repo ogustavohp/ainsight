@@ -1,6 +1,6 @@
 # Readme - Aplicação Next de AI para Perguntas sobre Vídeo
 
-Bem-vindo ao AInsight, a aplicação desenvolvida durante a segunda Imersão de Inteligência Artificial da Alura em parceria com o Google! O AInsight utiliza tecnologias de inteligência artificial para processar vídeos, extrair seu áudio e converter esse áudio em texto para responder perguntas e gerar conteúdo com base no vídeo.
+Bem-vindo ao AInsight, a aplicação desenvolvida durante a segunda Imersão de Inteligência Artificial com o Google! O AInsight utiliza tecnologias de inteligência artificial para processar vídeos, extrair seu áudio e converter esse áudio em texto para responder perguntas e gerar conteúdo com base no vídeo.
 
 ![Interface do AInsight](https://i.ibb.co/1KskNYf/ainsight.png)
 
